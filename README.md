@@ -27,4 +27,40 @@ The objectives of this exercise are:
 
 Example:
 
-Original repository  
+Original repository : "github.com/COS30045/energy-webpage"
+
+Your forked repository : "github.com/yourusername/energy-webpage"
+
+
+---
+
+# Step 2 – Clone the Repository
+
+Clone your forked repository to your local machine using **VS Code** or the terminal.
+
+Example:
+
+```bash
+git clone https://github.com/yourusername/energy-webpage.git
+
+# Step 3 – Project Structure
+
+
+Your project must follow the structure below.
+
+energy-webpage-v1
+│
+├── css
+│   └── styles.css
+│
+├── js
+│   └── scripts.js
+│
+├── images
+│   └── PowerIcon.png
+│
+├── data
+│   └── data.csv
+│
+├── index.html
+└── README.md
