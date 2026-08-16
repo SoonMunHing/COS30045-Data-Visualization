@@ -1,0 +1,536 @@
+/* ============================= */
+/* General */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0d1117;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* ============================= */
+/* Navigation */
+/* ============================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: #111820;
+    border-bottom: 1px solid #28333d;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 15px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: white;
+    font-weight: bold;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.nav-links a {
+    color: #d7dce1;
+
+    display: block;
+
+    padding: 10px 14px;
+
+    border-radius: 7px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #28333d;
+    color: #ffd43b;
+
+    transform: translateY(-2px);
+}
+
+.nav-links a.active {
+    background-color: #ffd43b;
+    color: #111820;
+
+    font-weight: bold;
+}
+
+
+/* ============================= */
+/* Hero */
+/* ============================= */
+
+.hero {
+    min-height: 650px;
+
+    padding: 100px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(255, 212, 59, 0.16),
+            transparent 35%
+        );
+}
+
+.hero > * {
+    max-width: 1100px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.eyebrow {
+    color: #ffd43b;
+
+    font-size: 0.85rem;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 7vw, 5.8rem);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #ffd43b;
+}
+
+.hero-description {
+    max-width: 700px;
+
+    color: #b5bdc5;
+
+    font-size: 1.15rem;
+
+    margin-bottom: 30px;
+}
+
+
+/* ============================= */
+/* Buttons */
+/* ============================= */
+
+.main-button {
+    display: inline-block;
+
+    width: fit-content;
+
+    border: none;
+
+    padding: 14px 24px;
+
+    border-radius: 8px;
+
+    background-color: #ffd43b;
+    color: #111820;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background-color: #ffe066;
+
+    transform: translateY(-3px);
+}
+
+
+/* ============================= */
+/* Sections */
+/* ============================= */
+
+.section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 90px 25px;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    margin-bottom: 10px;
+}
+
+.section-title > p:last-child {
+    color: #aab2ba;
+
+    max-width: 700px;
+}
+
+
+/* ============================= */
+/* Appliance Cards */
+/* ============================= */
+
+.appliance-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 20px;
+}
+
+.appliance-card {
+    background-color: #151c24;
+
+    border: 1px solid #29343e;
+
+    border-radius: 14px;
+
+    padding: 28px;
+
+    transition: 0.3s;
+}
+
+.appliance-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #ffd43b;
+}
+
+.icon {
+    font-size: 2.8rem;
+
+    margin-bottom: 15px;
+}
+
+.appliance-card h3 {
+    margin-bottom: 10px;
+}
+
+.appliance-card p {
+    color: #abb4bc;
+}
+
+.tag {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background-color: rgba(255, 212, 59, 0.1);
+
+    color: #ffd43b;
+
+    font-size: 0.8rem;
+}
+
+
+/* ============================= */
+/* Calculator */
+/* ============================= */
+
+.calculator-section {
+    border-top: 1px solid #202a33;
+}
+
+.calculator-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+}
+
+#energyForm,
+.results {
+    padding: 30px;
+
+    border-radius: 14px;
+
+    border: 1px solid #29343e;
+
+    background-color: #151c24;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #384550;
+
+    border-radius: 7px;
+
+    background-color: #0d1117;
+    color: white;
+
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #ffd43b;
+}
+
+.error-message {
+    color: #ff6b6b;
+
+    margin-top: 15px;
+
+    min-height: 24px;
+}
+
+.results h3 {
+    margin-bottom: 20px;
+}
+
+.result-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #2c3741;
+}
+
+.result-row span {
+    color: #adb6be;
+}
+
+.result-row strong {
+    color: #ffd43b;
+}
+
+.damage-message {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border-left: 4px solid #ffd43b;
+
+    background-color: #0d1117;
+
+    border-radius: 6px;
+}
+
+
+/* ============================= */
+/* FAQ */
+/* ============================= */
+
+.faq-container {
+    max-width: 900px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #2b353f;
+}
+
+.faq-question {
+    width: 100%;
+
+    border: none;
+
+    background: none;
+    color: white;
+
+    padding: 22px 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 1.05rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.faq-question span {
+    color: #ffd43b;
+
+    font-size: 1.5rem;
+
+    transition: 0.3s;
+}
+
+.faq-answer {
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+    color: #aab3bb;
+
+    padding: 0 30px 22px 0;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 250px;
+}
+
+.faq-item.open .faq-question span {
+    transform: rotate(45deg);
+}
+
+
+/* ============================= */
+/* Footer */
+/* ============================= */
+
+footer {
+    text-align: center;
+
+    padding: 35px 20px;
+
+    background-color: #080b0f;
+
+    border-top: 1px solid #202a33;
+
+    color: #99a3ac;
+}
+
+.ai-text {
+    max-width: 700px;
+
+    margin: 8px auto 0;
+
+    font-size: 0.8rem;
+
+    color: #69747e;
+}
+
+
+/* ============================= */
+/* Responsive */
+/* ============================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .logo-container span {
+        display: none;
+    }
+
+    .nav-links a {
+        padding: 8px;
+
+        font-size: 0.85rem;
+    }
+
+    .section {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .result-row {
+        flex-direction: column;
+
+        gap: 2px;
+    }
+
+}
