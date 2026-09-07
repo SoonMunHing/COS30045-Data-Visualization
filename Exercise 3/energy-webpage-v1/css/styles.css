@@ -638,3 +638,76 @@ footer {
 .info-card p {
     color: #abb4bc;
 }
+/* ============================= */
+/* Chart Images */
+/* ============================= */
+
+.chart-image {
+    display: block;
+
+    width: 100%;
+    max-width: 700px;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    border-radius: 8px;
+}
+
+
+/* ============================= */
+/* Storyboard Image */
+/* ============================= */
+
+.storyboard-image {
+    display: block;
+
+    width: 100%;
+    max-width: 850px;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    border-radius: 10px;
+}
+
+
+/* ============================= */
+/* Visualisation Container */
+/* ============================= */
+
+.visualisation-card {
+    max-width: 950px;
+
+    margin: 0 auto 30px auto;
+
+    padding: 25px;
+
+    background-color: #151c24;
+
+    border: 1px solid #29343e;
+    border-radius: 14px;
+}
+
+
+/* ============================= */
+/* Responsive */
+/* ============================= */
+
+@media (max-width: 800px) {
+
+    .chart-image {
+        max-width: 100%;
+    }
+
+    .storyboard-image {
+        max-width: 100%;
+    }
+
+    .visualisation-card {
+        padding: 15px;
+    }
+
+}
