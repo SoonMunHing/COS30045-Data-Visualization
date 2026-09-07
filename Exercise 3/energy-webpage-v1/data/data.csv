@@ -1,0 +1,9 @@
+appliance,power_watts,hours_per_day
+Television,110,4
+Air Conditioner,1500,6
+Refrigerator,150,24
+Gaming PC,500,5
+Microwave,1200,0.5
+Washing Machine,500,1
+Laptop,65,6
+Electric Kettle,2000,0.2
