@@ -1,39 +1,20 @@
 # Exercise 3 – Data Story: TV Energy Consumption
 
-## Overview
-
-In this exercise, you will develop a **data story** based on the **TV Energy Consumption dataset**. Using the website created in **Exercise 0.2**, you will extend your work to present a meaningful narrative supported by data visualisations.
-
-Your goal is to communicate insights from the dataset in a clear and engaging way through your **website and written explanation**.
-
-You must use the **Exercise 3 folder in your existing forked repository** and reuse the files created in **Exercise 0.2**.
-
----
+# TV Energy Consumption Data Visualisation
 
 ## Data Story
 
 ### Audience
 
-The target audience for this visualisation includes:
+The main audience for this visualisation is consumers who are interested in buying a television and want to understand its energy consumption. It may also be useful for households that are concerned about electricity usage, energy efficiency and environmental impact.
 
-- Consumers interested in **energy-efficient televisions**
-- Policy makers and regulators interested in **energy consumption trends**
-- Researchers studying **energy efficiency in consumer electronics**
+### Audience Interest
 
-These audiences are interested in understanding how **television energy consumption varies across models, sizes, and technologies**, and how these factors influence overall energy usage.
+Consumers normally consider factors such as TV size, brand and features when choosing a television. However, energy consumption can also affect the long-term cost of using a TV. This visualisation helps users explore the TV energy consumption dataset and compare different televisions based on their characteristics.
 
-### Story Overview
+The story focuses on how TV size relates to energy consumption. TVs are grouped into Small, Medium and Large categories to make the data easier to understand and compare. The visualisation allows the audience to identify patterns and consider energy efficiency when choosing a television.
 
-This visualisation explores patterns in **TV energy consumption** across different television models and specifications.
-
-The goal is to help viewers understand:
-
-- How energy consumption varies between television models
-- The relationship between **screen size and power consumption**
-- How **energy efficiency ratings** impact energy usage
-- Trends that may help consumers choose more **energy-efficient televisions**
-
-The website presents these insights through visualisations and explanatory text that guide the viewer through the data.
+The purpose of the visualisation is not to recommend one specific television, but to help the audience make a more informed decision based on the available data.
 
 ---
 
@@ -41,64 +22,44 @@ The website presents these insights through visualisations and explanatory text 
 
 ### Data Source
 
-The dataset used in this project contains information about **television models and their energy consumption characteristics**, including power usage, screen size, technology type, and efficiency ratings.
-
-The dataset was provided as part of the course materials.
+The visualisation uses the provided TV energy consumption dataset. The dataset contains information about televisions and their energy-related characteristics. The original dataset was used as the main source for the analysis and visualisation.
 
 ### Data Processing
 
-Before creating visualisations, the dataset was processed to ensure it was suitable for analysis. This included:
+The data was processed using KNIME Analytics Platform. Data processing included checking and preparing the dataset before it was used for visualisation.
 
-- Cleaning missing or inconsistent values
-- Selecting relevant attributes for visualisation
-- Organising the data into formats suitable for web visualisation
+A new size category was created to make TV sizes easier to compare:
+
+* **Small:** less than 43 inches
+* **Medium:** 44 to 65 inches
+* **Large:** more than 66 inches
+
+A KNIME expression was used to create these categories.
+
+The processed data was then used to create the visualisations presented on the website.
 
 ### Privacy
 
-The dataset does not contain any **personal or sensitive information**. It focuses solely on product specifications and energy consumption data related to television devices.
+The dataset contains information about television products rather than personal information about individuals. Therefore, the visualisation does not collect or display personal or sensitive information.
 
 ### Accuracy and Limitations
 
-While the dataset provides useful information about TV energy consumption, there are some limitations:
+The visualisation is based on the information available in the provided dataset. The accuracy of the results depends on the accuracy and completeness of the original data.
 
-- The dataset may not include **all available television models**
-- Some information may be **outdated or incomplete**
-- Energy consumption may vary depending on **real-world usage conditions**
+The dataset may not contain every television currently available on the market, so the results should not be treated as a complete representation of all TVs.
 
-These factors should be considered when interpreting the visualisations.
+The size categories also simplify continuous screen-size data into three groups. Based on the specified category rules, values of exactly **43 inches and 66 inches are not included in the Small, Medium or Large categories**. This should be considered when interpreting the results.
+
+Energy consumption can also be affected by factors that may not be represented in the dataset, such as user settings, brightness, viewing time and actual usage conditions.
 
 ### Ethics
 
-When presenting data visualisations, it is important to ensure that the information is represented **accurately and responsibly**.
+The visualisation aims to represent the data fairly and clearly without intentionally misleading the audience. The data has not been changed to support a particular conclusion.
 
-This project follows ethical data visualisation practices by:
-
-- Avoiding misleading visual representations
-- Clearly explaining the context of the data
-- Presenting information transparently so viewers can interpret the results correctly
+The visualisation should be interpreted as a tool for exploring TV energy consumption rather than as direct purchasing advice. Factors other than energy consumption may also influence which television is suitable for an individual consumer.
 
 ---
 
 ## AI Declaration
 
-Artificial Intelligence (AI) tools may have been used to assist with aspects of this assignment, such as:
-
-- Generating example code
-- Improving code structure
-- Assisting with documentation writing
-
-All AI-generated assistance was reviewed, modified where necessary, and integrated responsibly into the project.
-
----
-
-## Website Storytelling
-
-The website has been updated to communicate a **data-driven story** based on the TV energy consumption dataset.
-
-The website includes:
-
-- Visualisations that present key insights from the dataset
-- Text explanations that help readers understand the meaning of the visualisations
-- Context that connects the data to real-world implications
-
-The aim is to guide the viewer through the data in a way that is **informative, engaging, and easy to understand**.
+I used Generative AI to help me understand how to create a KNIME expression for categorising television sizes into Small, Medium and Large groups. I also used Generative AI to assist with organising and improving the wording and structure of the README and Data Story. I reviewed the suggestions and applied them to my own work.
