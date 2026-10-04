@@ -565,3 +565,9 @@ footer {
 .axis line {
     stroke: #aab2ba;
 }
+
+.donut-label {
+    fill: #111820;
+    font-size: 16px;
+    font-weight: bold;
+}

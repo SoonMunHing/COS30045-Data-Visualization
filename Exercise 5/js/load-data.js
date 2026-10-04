@@ -19,3 +19,14 @@ d3.csv("data/ARE_Spot_Prices.csv", d => {
     console.log(data);
     drawLineChart(data);
 });
+
+// Exercise 5.3 - Load TV counts by screen size
+d3.csv("data/Ex5_TV_screensize_counts.csv", d => {
+    return {
+        category: d.Screensize_Category,
+        count: +d.Count
+    };
+}).then(data => {
+    // No sort: keep the CSV's size order so slices follow a natural size sequence
+    drawDonutChart(data);
+});
