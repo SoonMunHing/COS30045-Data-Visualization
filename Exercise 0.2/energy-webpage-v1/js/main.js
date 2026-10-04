@@ -2,7 +2,7 @@
 
 const svg = d3.select(".responsive-svg-container")
     .append("svg")
-    .attr("viewBox", "0 0 500 1000")
+    .attr("viewBox", "0 0 650 1000")
     .style("border", "1px solid black");
 
 // Exercise 4.4 - Load data from CSV
@@ -38,14 +38,40 @@ const drawBarChart = data => {
         .range([0, 1000])
         .padding(0.2);
 
-    svg
-        .selectAll("rect")
+    // Exercise 4.7 - Labels: each bar sits in a g shifted right by labelWidth to make room for brand names
+    const labelWidth = 200;
+
+    const barAndLabel = svg
+        .selectAll("g")
         .data(data)
-        .join("rect")
+        .join("g")
+        .attr("transform", d => `translate(${labelWidth}, ${yScale(d.brand)})`);
+
+    barAndLabel
+        .append("rect")
         .attr("class", d => `bar bar-${d.count}`)
         .attr("width", d => xScale(d.count))
         .attr("height", yScale.bandwidth())
         .attr("x", 0)
-        .attr("y", d => yScale(d.brand))
+        .attr("y", 0)
         .attr("fill", "steelblue");
+
+    barAndLabel
+        .append("text")
+        .text(d => d.brand)
+        .attr("x", -5)
+        .attr("y", yScale.bandwidth() / 2)
+        .attr("text-anchor", "end")
+        .attr("dominant-baseline", "middle")
+        .style("font-size", "9px")
+        .style("fill", "#f5f5f5");
+
+    barAndLabel
+        .append("text")
+        .text(d => d.count)
+        .attr("x", d => xScale(d.count) + 4)
+        .attr("y", yScale.bandwidth() / 2)
+        .attr("dominant-baseline", "middle")
+        .style("font-size", "9px")
+        .style("fill", "#f5f5f5");
 };
