@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 4.1 – SVG House and Garden</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; max-width: 860px; margin: 0 auto; padding: 16px; color: #222; line-height: 1.5; }
+    h1, h2 { color: #2c3e50; }
+    svg { border: 1px solid #ccc; max-width: 100%; height: auto; }
+    figure { margin: 24px 0; }
+    figure img { max-width: 100%; border: 1px solid #ccc; }
+    figcaption { font-size: 0.9em; color: #555; }
+    code { background: #f2f2f2; padding: 1px 4px; border-radius: 3px; }
+    .note { background: #f7f7f7; border-left: 4px solid #2c3e50; padding: 8px 16px; }
+  </style>
+</head>
+<body>
+  <h1>Exercise 4.1 – SVG House and Garden</h1>
+  <p>A picture built only from SVG primitives: <code>rect</code>, <code>circle</code>, <code>ellipse</code>,
+     <code>line</code>, <code>polyline</code>, <code>polygon</code>, <code>path</code> and <code>text</code>.
+     The SVG is 800 × 500 pixels. The origin (0, 0) is the <strong>top-left</strong> corner,
+     x increases to the right and y increases <strong>downwards</strong>.</p>
+
+  <!-- ===================== THE PICTURE ===================== -->
+  <svg id="scene" width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sky (rect) -->
+    <rect id="sky" x="0" y="0" width="800" height="500" fill="#bfe6ff" />
+
+    <!-- Sun (circle) -->
+    <circle id="sun" cx="700" cy="80" r="45" fill="#ffd23f" stroke="#f4a300" stroke-width="4" />
+
+    <!-- Clouds (ellipse) -->
+    <ellipse id="cloud" cx="170" cy="80" rx="70" ry="25" fill="#ffffff" />
+    <ellipse cx="215" cy="65" rx="45" ry="22" fill="#ffffff" />
+    <ellipse cx="480" cy="55" rx="55" ry="18" fill="#ffffff" />
+
+    <!-- Grass (rect) -->
+    <rect id="grass" x="0" y="380" width="800" height="120" fill="#7cc35a" />
+
+    <!-- Chimney (rect) – drawn before the roof so the roof covers its base -->
+    <rect id="chimney" x="440" y="120" width="35" height="70" fill="#9b4a3c" stroke="#5a2c22" stroke-width="2" />
+
+    <!-- Chimney smoke (path with cubic Bézier curves) -->
+    <path id="smoke" d="M 458 112 C 440 95, 480 80, 460 60 S 482 32, 466 12"
+          fill="none" stroke="#9aa5ad" stroke-width="6" stroke-linecap="round" stroke-dasharray="14 8" />
+
+    <!-- House body (rect) -->
+    <rect id="house" x="250" y="220" width="260" height="160" fill="#f5deb3" stroke="#5a3e2b" stroke-width="3" />
+
+    <!-- Roof (polygon) -->
+    <polygon id="roof" points="230,220 380,110 530,220" fill="#c0392b" stroke="#7b241c" stroke-width="3" stroke-linejoin="round" />
+
+    <!-- Door (rect with rounded corners) and door knob (circle) -->
+    <rect id="door" x="355" y="300" width="50" height="80" rx="4" fill="#8e5a34" stroke="#5a3e2b" stroke-width="3" />
+    <circle cx="395" cy="342" r="4" fill="#ffd23f" />
+
+    <!-- Windows: one group <g> styles both windows identically and transform/translate positions them -->
+    <g id="windows" transform="translate(275, 250)" fill="#fff8c4" stroke="#5a3e2b" stroke-width="4">
+      <!-- left window (local coordinates, relative to the translated origin) -->
+      <rect x="0" y="0" width="55" height="45" />
+      <line x1="27.5" y1="0" x2="27.5" y2="45" />
+      <line x1="0" y1="22.5" x2="55" y2="22.5" />
+      <!-- right window -->
+      <rect x="150" y="0" width="55" height="45" />
+      <line x1="177.5" y1="0" x2="177.5" y2="45" />
+      <line x1="150" y1="22.5" x2="205" y2="22.5" />
+    </g>
+
+    <!-- Garden path from the door (path with quadratic curves) -->
+    <path id="gardenPath" d="M 355 380 L 405 380 Q 430 440 480 500 L 300 500 Q 345 440 355 380 Z"
+          fill="#d9b382" stroke="#a67c52" stroke-width="2" />
+
+    <!-- Tree: trunk (rect) and leaves (circles) -->
+    <rect x="110" y="290" width="24" height="90" fill="#7a4b2a" />
+    <circle cx="122" cy="262" r="55" fill="#2e8b57" />
+    <circle cx="95" cy="240" r="30" fill="#3aa86b" />
+
+    <!-- Bushes (ellipse) -->
+    <ellipse cx="270" cy="378" rx="30" ry="16" fill="#3a9d4f" />
+    <ellipse cx="490" cy="378" rx="30" ry="16" fill="#3a9d4f" />
+
+    <!-- Flowers (circles) -->
+    <circle cx="180" cy="420" r="7" fill="#ff6fa5" />
+    <circle cx="210" cy="440" r="7" fill="#ffd23f" />
+    <circle cx="240" cy="418" r="7" fill="#b07cff" />
+
+    <!-- Picket fence (polyline) and rail (line) -->
+    <polyline id="fence" points="560,380 560,345 570,332 580,345 580,380 590,380 590,345 600,332 610,345 610,380 620,380 620,345 630,332 640,345 640,380 650,380 650,345 660,332 670,345 670,380 680,380 680,345 690,332 700,345 700,380 710,380 710,345 720,332 730,345 730,380 740,380 740,345 750,332 760,345 760,380"
+              fill="#ffffff" stroke="#6d6d6d" stroke-width="2" />
+    <line id="rail" x1="550" y1="362" x2="770" y2="362" stroke="#6d6d6d" stroke-width="4" />
+
+    <!-- Title (text) -->
+    <text id="title" x="400" y="40" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#2c3e50">My House and Garden</text>
+  </svg>
+
+  <!-- ===================== ANNOTATIONS ===================== -->
+  <h2>Understanding the SVG coordinate system</h2>
+  <p>Each screenshot below highlights one example of a shape type (dashed red outline) and labels the
+     coordinates from the code at the matching points in the drawing. The faint grid lines are every 100 px.</p>
+
+  <figure><img src="images/annot-rect.png" alt="Annotated rect: the house body">
+    <figcaption><code>&lt;rect x="250" y="220" width="260" height="160"&gt;</code> – x and y are the top-left corner; the bottom-right corner is (x + width, y + height) = (510, 380).</figcaption></figure>
+
+  <figure><img src="images/annot-circle.png" alt="Annotated circle: the sun">
+    <figcaption><code>&lt;circle cx="700" cy="80" r="45"&gt;</code> – cx, cy is the centre; r is the radius.</figcaption></figure>
+
+  <figure><img src="images/annot-ellipse.png" alt="Annotated ellipse: a cloud">
+    <figcaption><code>&lt;ellipse cx="170" cy="80" rx="70" ry="25"&gt;</code> – rx is the horizontal radius and ry the vertical radius.</figcaption></figure>
+
+  <figure><img src="images/annot-line.png" alt="Annotated line: the fence rail">
+    <figcaption><code>&lt;line x1="550" y1="362" x2="770" y2="362"&gt;</code> – a straight line from (x1, y1) to (x2, y2). A line needs a stroke to be visible.</figcaption></figure>
+
+  <figure><img src="images/annot-polyline.png" alt="Annotated polyline: the picket fence">
+    <figcaption><code>&lt;polyline points="560,380 560,345 570,332 …"&gt;</code> – a list of x,y points joined in order; unlike a polygon it is not closed automatically.</figcaption></figure>
+
+  <figure><img src="images/annot-polygon.png" alt="Annotated polygon: the roof">
+    <figcaption><code>&lt;polygon points="230,220 380,110 530,220"&gt;</code> – like a polyline, but the last point joins back to the first to close the shape.</figcaption></figure>
+
+  <figure><img src="images/annot-path.png" alt="Annotated path: the garden path">
+    <figcaption><code>&lt;path d="M 355 380 L 405 380 Q 430 440 480 500 L 300 500 Q 345 440 355 380 Z"&gt;</code> – M moves the pen, L draws a line, Q draws a quadratic curve using a control point (shown as hollow circles), Z closes the path.</figcaption></figure>
+
+  <figure><img src="images/annot-text.png" alt="Annotated text: the title">
+    <figcaption><code>&lt;text x="400" y="40" text-anchor="middle"&gt;</code> – y is the <em>baseline</em> of the text (not the top), and text-anchor="middle" centres the text on x.</figcaption></figure>
+
+  <figure><img src="images/annot-group.png" alt="Annotated group: the two windows">
+    <figcaption><code>&lt;g transform="translate(275, 250)"&gt;</code> – the group moves its origin to (275, 250). The windows inside use local coordinates: the right window's <code>x="150"</code> is drawn at 275 + 150 = 425 on the page. The group's fill, stroke and stroke-width apply to both windows.</figcaption></figure>
+
+  <!-- ===================== AI USE ===================== -->
+  <h2>Use of AI</h2>
+  <div class="note">
+    <p>I used Claude (Anthropic) to help with this exercise. It generated a first version of the house and garden SVG,
+       grouped the two windows inside a <code>&lt;g&gt;</code> positioned with <code>transform="translate(…)"</code>,
+       and produced the annotated coordinate screenshots by rendering the page in a headless browser and overlaying labels.
+       I checked every coordinate against the code, customised the picture (colours, strokes, positions) and wrote the explanations in my own words.</p>
+  </div>
+</body>
+</html>
