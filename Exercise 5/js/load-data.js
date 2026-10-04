@@ -27,6 +27,7 @@ d3.csv("data/Ex5_TV_screensize_counts.csv", d => {
         count: +d.Count
     };
 }).then(data => {
+    console.log(data);
     // No sort: keep the CSV's size order so slices follow a natural size sequence
     drawDonutChart(data);
 });
