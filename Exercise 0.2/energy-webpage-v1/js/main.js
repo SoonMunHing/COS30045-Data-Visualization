@@ -27,7 +27,7 @@ d3.csv("data/tvBrandCount.csv", d => {
 
 // Exercise 4.5 - Bar chart
 // 96 bars x 16px spacing = 1536, fits the 1600-high viewBox
-function drawBarChart(data) {
+const drawBarChart = data => {
     const barHeight = 12;
     const barSpacing = 16;
 
@@ -41,4 +41,4 @@ function drawBarChart(data) {
         .attr("x", 0)
         .attr("y", (d, i) => i * barSpacing)
         .attr("fill", "steelblue");
-}
+};
