@@ -555,7 +555,8 @@ footer {
 
 .axis text,
 .axis-label,
-.bar-label {
+.bar-label,
+.line-label {
     fill: #f5f5f5;
     font-size: 16px;
 }
@@ -563,4 +564,14 @@ footer {
 .axis path,
 .axis line {
     stroke: #aab2ba;
+}
+
+.line {
+    fill: none;
+    stroke: #ffd43b;
+    stroke-width: 3;
+}
+
+.line-point {
+    fill: #ffd43b;
 }
