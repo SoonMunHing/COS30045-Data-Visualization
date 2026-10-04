@@ -28,10 +28,10 @@ d3.csv("data/tvBrandCount.csv", d => {
 // Exercise 4.5 - Bar chart
 // Exercise 4.6 - Scales: xScale maps count to bar width, yScale spaces the brands
 const drawBarChart = data => {
-    // Domain uses d3.max (740) rather than a fixed value so the longest bar fills the chart
+    // Domain uses d3.max (740) instead of the handout's 1200; range stops at 400 to leave room for labels
     const xScale = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.count)])
-        .range([0, 500]);
+        .range([0, 400]);
 
     const yScale = d3.scaleBand()
         .domain(data.map(d => d.brand))
