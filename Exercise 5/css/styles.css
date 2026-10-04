@@ -565,13 +565,3 @@ footer {
 .axis line {
     stroke: #aab2ba;
 }
-
-.line {
-    fill: none;
-    stroke: #ffd43b;
-    stroke-width: 3;
-}
-
-.line-point {
-    fill: #ffd43b;
-}

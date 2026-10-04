@@ -71,12 +71,10 @@ const drawLineChart = data => {
         .attr("stroke", "#4dabf7")
         .attr("stroke-width", 2);
 
-    const last = data[data.length - 1];
     innerChart
         .append("text")
         .attr("class", "line-label")
-        .attr("x", xScale(last.year) - 10)
-        .attr("y", yScale(last.averagePrice) - 12)
-        .attr("text-anchor", "end")
-        .text(`Average price: $${last.averagePrice}`);
+        .attr("x", xScale(data[0].year) + 10)
+        .attr("y", yScale(120))
+        .text("Average price (excl. Tasmania and Snowy)");
 };
