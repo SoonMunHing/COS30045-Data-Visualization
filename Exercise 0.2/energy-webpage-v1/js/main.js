@@ -2,7 +2,7 @@
 
 const svg = d3.select(".responsive-svg-container")
     .append("svg")
-    .attr("viewBox", "0 0 1200 1600")
+    .attr("viewBox", "0 0 500 1000")
     .style("border", "1px solid black");
 
 // Exercise 4.4 - Load data from CSV
@@ -26,19 +26,26 @@ d3.csv("data/tvBrandCount.csv", d => {
 });
 
 // Exercise 4.5 - Bar chart
-// 96 bars x 16px spacing = 1536, fits the 1600-high viewBox
+// Exercise 4.6 - Scales: xScale maps count to bar width, yScale spaces the brands
 const drawBarChart = data => {
-    const barHeight = 12;
-    const barSpacing = 16;
+    // Domain uses d3.max (740) rather than a fixed value so the longest bar fills the chart
+    const xScale = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.count)])
+        .range([0, 500]);
+
+    const yScale = d3.scaleBand()
+        .domain(data.map(d => d.brand))
+        .range([0, 1000])
+        .padding(0.2);
 
     svg
         .selectAll("rect")
         .data(data)
         .join("rect")
         .attr("class", d => `bar bar-${d.count}`)
-        .attr("width", d => d.count)
-        .attr("height", barHeight)
+        .attr("width", d => xScale(d.count))
+        .attr("height", yScale.bandwidth())
         .attr("x", 0)
-        .attr("y", (d, i) => i * barSpacing)
+        .attr("y", d => yScale(d.brand))
         .attr("fill", "steelblue");
 };
