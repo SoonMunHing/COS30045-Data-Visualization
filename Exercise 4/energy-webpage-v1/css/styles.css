@@ -534,3 +534,11 @@ footer {
     }
 
 }
+
+/* Exercise 4.3: responsive SVG container */
+.responsive-svg-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1200px;
+}
