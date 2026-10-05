@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Watt's Eating My Power?</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- Navigation -->
+    <!-- ============================= -->
+
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo-container">
+                <img
+                    src="images/PowerIcon.png"
+                    alt="Power logo"
+                    class="logo"
+                >
+
+                <span>Watt's Eating My Power?</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#appliances">Appliances</a></li>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ============================= -->
+        <!-- Hero -->
+        <!-- ============================= -->
+
+        <section class="hero" id="home">
+
+            <p class="eyebrow">
+                APPLIANCE ENERGY CONSUMPTION
+            </p>
+
+            <h1>
+                Your appliances look innocent.
+                <span>Your electricity bill disagrees.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover how everyday household appliances consume
+                electricity and calculate how much damage they may
+                be doing to your wallet.
+            </p>
+
+            <a href="#calculator" class="main-button">
+                Find the Power Thief ⚡
+            </a>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- Appliance Cards -->
+        <!-- ============================= -->
+
+        <section class="section" id="appliances">
+
+            <div class="section-title">
+
+                <p class="eyebrow">
+                    THE SUSPECTS
+                </p>
+
+                <h2>
+                    Who's eating all the electricity?
+                </h2>
+
+                <p>
+                    Some appliances are useful.
+                    Some are essential.
+                    Some apparently think you own a power station.
+                </p>
+
+            </div>
+
+
+            <div class="appliance-grid">
+
+                <article class="appliance-card">
+
+                    <div class="icon">📺</div>
+
+                    <h3>Television</h3>
+
+                    <p>
+                        "Just one more episode."
+                        — Your TV, four hours ago.
+                    </p>
+
+                    <span class="tag">
+                        Moderate Power Thief
+                    </span>
+
+                </article>
+
+
+                <article class="appliance-card">
+
+                    <div class="icon">❄️</div>
+
+                    <h3>Air Conditioner</h3>
+
+                    <p>
+                        Keeps you cool while making your electricity
+                        bill sweat.
+                    </p>
+
+                    <span class="tag">
+                        Serious Power Thief
+                    </span>
+
+                </article>
+
+
+                <article class="appliance-card">
+
+                    <div class="icon">🧊</div>
+
+                    <h3>Refrigerator</h3>
+
+                    <p>
+                        Works 24 hours a day and somehow never asks
+                        for annual leave.
+                    </p>
+
+                    <span class="tag">
+                        Always Working
+                    </span>
+
+                </article>
+
+
+                <article class="appliance-card">
+
+                    <div class="icon">🎮</div>
+
+                    <h3>Gaming PC</h3>
+
+                    <p>
+                        Converts electricity into frames per second
+                        and questionable sleeping habits.
+                    </p>
+
+                    <span class="tag">
+                        RGB Powered
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- D3 Practice (Exercise 4.2) -->
+        <!-- ============================= -->
+
+        <section class="section" id="d3-practice">
+
+            <div class="section-title">
+
+                <p class="eyebrow">
+                    D3 PRACTICE
+                </p>
+
+                <h2>
+                    Drawing with D3
+                </h2>
+
+            </div>
+
+            <!-- Empty SVG: js/main.js uses D3 to add a rectangle here -->
+            <svg width="500" height="150"></svg>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- Energy Calculator -->
+        <!-- ============================= -->
+
+        <section class="section calculator-section" id="calculator">
+
+            <div class="section-title">
+
+                <p class="eyebrow">
+                    ENERGY CALCULATOR
+                </p>
+
+                <h2>
+                    Electricity Bill Damage Calculator 💸
+                </h2>
+
+                <p>
+                    Enter the appliance details below and let JavaScript
+                    deliver the financial news.
+                </p>
+
+            </div>
+
+
+            <div class="calculator-container">
+
+                <form id="energyForm">
+
+                    <div class="form-group">
+
+                        <label for="power">
+                            Appliance Power (Watts)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="power"
+                            placeholder="Example: 150"
+                            min="0"
+                            step="any"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="hours">
+                            Hours Used Per Day
+                        </label>
+
+                        <input
+                            type="number"
+                            id="hours"
+                            placeholder="Example: 5"
+                            min="0"
+                            max="24"
+                            step="any"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="price">
+                            Electricity Price (cents per kWh)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="price"
+                            placeholder="Example: 30"
+                            min="0"
+                            step="any"
+                        >
+
+                    </div>
+
+
+                    <button type="submit" class="main-button">
+                        Show Me The Damage
+                    </button>
+
+
+                    <p id="errorMessage" class="error-message"></p>
+
+                </form>
+
+
+                <div class="results">
+
+                    <p class="eyebrow">
+                        DAMAGE REPORT
+                    </p>
+
+                    <h3>Energy Estimate</h3>
+
+
+                    <div class="result-row">
+                        <span>Daily Consumption</span>
+                        <strong id="dailyEnergy">-- kWh</strong>
+                    </div>
+
+
+                    <div class="result-row">
+                        <span>Monthly Consumption</span>
+                        <strong id="monthlyEnergy">-- kWh</strong>
+                    </div>
+
+
+                    <div class="result-row">
+                        <span>Yearly Consumption</span>
+                        <strong id="yearlyEnergy">-- kWh</strong>
+                    </div>
+
+
+                    <div class="result-row">
+                        <span>Monthly Cost</span>
+                        <strong id="monthlyCost">$--</strong>
+                    </div>
+
+
+                    <div class="result-row">
+                        <span>Yearly Cost</span>
+                        <strong id="yearlyCost">$--</strong>
+                    </div>
+
+
+                    <p id="damageMessage" class="damage-message">
+                        Enter some numbers to investigate the suspect.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- FAQ -->
+        <!-- ============================= -->
+
+        <section class="section" id="faq">
+
+            <div class="section-title">
+
+                <p class="eyebrow">
+                    FAQ
+                </p>
+
+                <h2>
+                    Questions you were too afraid to ask your electricity bill
+                </h2>
+
+            </div>
+
+
+            <div class="faq-container">
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        What is a kilowatt-hour?
+
+                        <span>+</span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            A kilowatt-hour (kWh) is a unit used to measure
+                            electrical energy. Using a 1,000 watt appliance
+                            for one hour consumes approximately 1 kWh.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        Why is my electricity bill so high?
+
+                        <span>+</span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            High-powered appliances, longer usage times and
+                            electricity prices can all increase your overall
+                            electricity cost.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        Does standby mode use electricity?
+
+                        <span>+</span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Yes. Many appliances still consume a small amount
+                            of electricity while in standby mode. Your TV is
+                            basically sleeping with one eye open.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        Should I turn everything off?
+
+                        <span>+</span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Turning off appliances that are not needed can
+                            reduce energy consumption. Please leave the
+                            refrigerator alone though. Your milk has done
+                            nothing wrong.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- Footer -->
+    <!-- ============================= -->
+
+    <footer>
+
+        <p>
+            © <span id="currentYear"></span>
+            Soon Mun Hing | COS30045 Data Visualisation
+        </p>
+
+        <p class="ai-text">
+            Generative AI was used to assist with brainstorming,
+            code suggestions and troubleshooting. Generated code
+            was reviewed, understood and tested before use.
+        </p>
+
+    </footer>
+
+
+    <!-- External JavaScript -->
+    <script src="js/scripts.js"></script>
+
+    <!-- Exercise 4.2: D3 library, then my D3 code (kept separate from scripts.js) -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
+<!-- Generative AI was used to assist with brainstorming, code suggestions,
+explanations and troubleshooting.
+
+AI-generated code and suggestions were reviewed, modified where
+necessary and tested -->
