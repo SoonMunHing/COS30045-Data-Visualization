@@ -35,4 +35,32 @@ const drawHistogram = data => {
         .attr("fill", barColor)
         .attr("stroke", bodyBackgroundColor)
         .attr("stroke-width", 2);
+
+    innerChart
+        .append("g")
+        .attr("class", "axis")
+        .attr("transform", `translate(0, ${innerHeight})`)
+        .call(d3.axisBottom(xScale));
+
+    innerChart
+        .append("g")
+        .attr("class", "axis")
+        .call(d3.axisLeft(yScale));
+
+    svg
+        .append("text")
+        .attr("class", "axis-label")
+        .attr("x", margin.left + innerWidth / 2)
+        .attr("y", height - 15)
+        .attr("text-anchor", "middle")
+        .text("Labelled energy consumption (kWh/year)");
+
+    svg
+        .append("text")
+        .attr("class", "axis-label")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -(margin.top + innerHeight / 2))
+        .attr("y", 25)
+        .attr("text-anchor", "middle")
+        .text("Frequency (number of TVs)");
 };
