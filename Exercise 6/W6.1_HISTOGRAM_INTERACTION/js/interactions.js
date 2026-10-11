@@ -1,1 +1,9 @@
-// Exercise 6.2 - Filter interactions will go here
+// Exercise 6.2 - Filter the histogram by screen technology
+const populateFilters = data => {
+    d3.select("#filters_screen")
+        .selectAll(".filter")
+        .data(filters_screen)
+        .join("button")
+        .attr("class", d => `filter ${d.isActive ? "active" : ""}`)
+        .text(d => d.label);
+};
