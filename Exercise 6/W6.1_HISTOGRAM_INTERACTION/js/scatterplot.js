@@ -4,7 +4,7 @@ const drawScatterplot = data => {
         .append("svg")
         .attr("viewBox", `0 0 ${width} ${height}`);
 
-    const innerChart = svg
+    innerChartS = svg
         .append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
@@ -22,7 +22,7 @@ const drawScatterplot = data => {
         .domain([0, d3.max(data, d => d.screenSize)])
         .range([0, 12]);
 
-    innerChart
+    innerChartS
         .selectAll("circle")
         .data(data)
         .join("circle")
@@ -30,16 +30,15 @@ const drawScatterplot = data => {
         .attr("cy", d => yScaleS(d.energyConsumption))
         .attr("r", d => rScale(d.screenSize))
         .attr("fill", d => colorScale(d.screenTech))
-        .attr("stroke", d => colorScale(d.screenTech))
-        .attr("fill-opacity", 0.3);
+        .attr("opacity", 0.5);
 
-    innerChart
+    innerChartS
         .append("g")
         .attr("class", "axis")
         .attr("transform", `translate(0, ${innerHeight})`)
         .call(d3.axisBottom(xScaleS));
 
-    innerChart
+    innerChartS
         .append("g")
         .attr("class", "axis")
         .call(d3.axisLeft(yScaleS));
@@ -61,19 +60,27 @@ const drawScatterplot = data => {
         .attr("text-anchor", "middle")
         .text("Labelled energy consumption (kWh/year)");
 
-    // Legend for the screen technology colours
-    const legendItems = d3.select("#scatterplot-legend")
-        .selectAll(".legend-item")
-        .data(colorScale.domain())
-        .join("li")
-        .attr("class", "legend-item");
+    // Legend in the top right corner of the chart
+    const legend = svg
+        .append("g")
+        .attr("transform", `translate(${width - margin.right - 70}, ${margin.top})`);
 
-    legendItems
-        .append("span")
-        .attr("class", "legend-color")
-        .style("background-color", d => colorScale(d));
+    colorScale.domain().forEach((tech, i) => {
+        const legendItem = legend
+            .append("g")
+            .attr("transform", `translate(0, ${i * 20})`);
 
-    legendItems
-        .append("span")
-        .text(d => d);
+        legendItem
+            .append("rect")
+            .attr("width", 14)
+            .attr("height", 14)
+            .attr("fill", colorScale(tech));
+
+        legendItem
+            .append("text")
+            .attr("class", "legend-label")
+            .attr("x", 22)
+            .attr("y", 12)
+            .text(tech);
+    });
 };

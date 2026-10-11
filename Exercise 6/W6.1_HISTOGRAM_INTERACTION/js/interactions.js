@@ -47,7 +47,7 @@ const populateFilters = data => {
         d3.selectAll("#scatterplot circle")
             .transition()
             .duration(500)
-            .attr("opacity", tv => updatedData.includes(tv) ? 1 : 0.05);
+            .attr("opacity", tv => updatedData.includes(tv) ? 0.5 : 0.05);
     };
 
     addButtons("filters_screen", filters_screen);

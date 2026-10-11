@@ -11,7 +11,12 @@ const bodyBackgroundColor = "#0d1117";
 const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
 
-// Exercise 6.3 - Scales for the scatterplot
+// Exercise 6.3 - Scatterplot inner chart, scales and tooltip size
+let innerChartS;
+
+const tooltipWidth = 65;
+const tooltipHeight = 32;
+
 const xScaleS = d3.scaleLinear();
 const yScaleS = d3.scaleLinear();
 const rScale = d3.scaleRadial();
