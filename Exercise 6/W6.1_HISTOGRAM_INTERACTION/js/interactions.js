@@ -1,31 +1,37 @@
-// Exercise 6.2 - Filter the histogram by screen technology
+// Exercise 6.2 - Filter the histogram by screen technology and screen size
 const populateFilters = data => {
-    d3.select("#filters_screen")
-        .selectAll(".filter")
-        .data(filters_screen)
-        .join("button")
-        .attr("class", d => `filter ${d.isActive ? "active" : ""}`)
-        .text(d => d.label)
-        .on("click", (e, d) => {
-            console.log("DOM event", e);
-            console.log("Attached datum", d);
+    const addButtons = (containerId, filters) => {
+        d3.select(`#${containerId}`)
+            .selectAll(".filter")
+            .data(filters)
+            .join("button")
+            .attr("class", d => `filter ${d.isActive ? "active" : ""}`)
+            .text(d => d.label)
+            .on("click", (e, d) => {
+                console.log("DOM event", e);
+                console.log("Attached datum", d);
 
-            if (!d.isActive) {
-                filters_screen.forEach(filter => {
-                    filter.isActive = d.id === filter.id;
-                });
+                if (!d.isActive) {
+                    filters.forEach(filter => {
+                        filter.isActive = d.id === filter.id;
+                    });
 
-                d3.selectAll("#filters_screen .filter")
-                    .classed("active", filter => filter.id === d.id);
+                    d3.selectAll(`#${containerId} .filter`)
+                        .classed("active", filter => filter.id === d.id);
 
-                updateHistogram(d.id, data);
-            }
-        });
+                    updateHistogram(data);
+                }
+            });
+    };
 
-    const updateHistogram = (filterId, data) => {
-        const updatedData = filterId === "all"
-            ? data
-            : data.filter(tv => tv.screenTech === filterId);
+    const updateHistogram = data => {
+        const screenId = filters_screen.find(f => f.isActive).id;
+        const sizeId = filters_size.find(f => f.isActive).id;
+
+        const updatedData = data.filter(tv =>
+            (screenId === "all" || tv.screenTech === screenId) &&
+            (sizeId === "all" || tv.screenSize === +sizeId)
+        );
 
         const updatedBins = binGenerator(updatedData);
 
@@ -37,4 +43,7 @@ const populateFilters = data => {
             .attr("y", d => yScale(d.length))
             .attr("height", d => innerHeight - yScale(d.length));
     };
+
+    addButtons("filters_screen", filters_screen);
+    addButtons("filters_size", filters_size);
 };

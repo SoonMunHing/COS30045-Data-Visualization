@@ -21,3 +21,13 @@ const filters_screen = [
     { id: "LED", label: "LED", isActive: false },
     { id: "OLED", label: "OLED", isActive: false }
 ];
+
+// Exercise 6.2 extension - Filter buttons for the most common screen sizes
+const filters_size = [
+    { id: "all", label: "All sizes", isActive: true },
+    { id: "24", label: '24"', isActive: false },
+    { id: "32", label: '32"', isActive: false },
+    { id: "55", label: '55"', isActive: false },
+    { id: "65", label: '65"', isActive: false },
+    { id: "98", label: '98"', isActive: false }
+];
