@@ -15,6 +15,11 @@ const drawHistogram = data => {
     const maxEng = bins[bins.length - 1].x1;
     const binsMaxLength = d3.max(bins, d => d.length);
 
+    // Keep the same bins when the data is filtered
+    binGenerator
+        .domain([minEng, maxEng])
+        .thresholds(bins.slice(1).map(d => d.x0));
+
     xScale
         .domain([minEng, maxEng])
         .range([0, innerWidth]);
