@@ -42,8 +42,19 @@ const populateFilters = data => {
             .ease(d3.easeCubicInOut)
             .attr("y", d => yScale(d.length))
             .attr("height", d => innerHeight - yScale(d.length));
+
+        // Extension - fade out the scatterplot dots that are filtered out
+        d3.selectAll("#scatterplot circle")
+            .transition()
+            .duration(500)
+            .attr("opacity", tv => updatedData.includes(tv) ? 1 : 0.05);
     };
 
     addButtons("filters_screen", filters_screen);
     addButtons("filters_size", filters_size);
 };
+
+// Exercise 6.4 - Tooltip (to be completed)
+const createTooltip = () => {};
+
+const handleMouseEvents = () => {};

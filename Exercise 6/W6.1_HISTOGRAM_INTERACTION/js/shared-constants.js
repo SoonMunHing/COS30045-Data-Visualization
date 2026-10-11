@@ -11,6 +11,14 @@ const bodyBackgroundColor = "#0d1117";
 const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
 
+// Exercise 6.3 - Scales for the scatterplot
+const xScaleS = d3.scaleLinear();
+const yScaleS = d3.scaleLinear();
+const rScale = d3.scaleRadial();
+const colorScale = d3.scaleOrdinal()
+    .domain(["LCD", "LED", "OLED"])
+    .range(["#4dabf7", "#69db7c", "#ff8787"]);
+
 const binGenerator = d3.bin()
     .value(d => d.energyConsumption);
 
